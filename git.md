@@ -138,6 +138,18 @@ git show HEAD~2
 git diff COMMIT_ID-1 COMMIT_ID-2
 ```
 
+### Merge vs Rebase
+
+```bash
+# at main branch
+git merge feature_branch
+# main branch is updated
+
+# at feature branch
+git rebase main
+# feature branch is updated
+```
+
 
 
 ---

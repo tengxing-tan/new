@@ -1,3 +1,7 @@
+# Git Command on Terminal
+
+## Initial Setup
+
 * Install git
 
 ```bash
@@ -11,10 +15,14 @@ git config --global user.name user_name_here
 git config --global user.password user_password_here
 ```
 
+---
+
+## Add Files
+
 * Create folder
 
 ```bash 
-# at your local directory. eg: /home/username
+# at your local directory. eg: /home/USERNAME
 mkdir test
 cd test
 # initialization
@@ -45,16 +53,46 @@ git commit -m "add new file \"test.c\""
 git commit --amend
 ```
 
-* Log
+---
+
+## Create new branch 
+
+Some examples: 
+
+* `mem_overflow`
+* `idea`
+* `new_feature`
+
+```bash
+# Create branch
+git branch dev
+
+# Move to branch
+git checkout dev
+
+# Or just one command line
+git checkout -b dev
+
+# list branch
+git branch
+```
+
+---
+
+## Useful `git ` command
+
+### Log
 
 ```bash
 git log
 
 # display in short sentence
 git log --pretty=oneline
+# or
+git log --oneline
 ```
 
-* Rollback
+### Rollback
 
 ```bash
 # 3 options
@@ -71,35 +109,42 @@ git reset --hard HEAD~3
 # ~3 : third version of master
 ```
 
-* Check change made by another person
+### Status
+
+Check change made by another person
 
 ```bash
 git status
 ```
 
-* Remove  / Delete file
+### Remove file
 
 ```bash
 rm test.c
+# or 
+git
 ```
 
-* Create new branch (eg. `mem_overflow`, `idea`, `new_feature`)
+### Review Last Commit
 
 ```bash
-# Create branch
-git branch dev
+# last commit
+git show 
 
-# Move to branch
-git checkout dev
+# last 2 commit
+git show HEAD~2
 
-# Or just one command line
-git checkout -b dev
-
-# list branch
-git branch
+# === git diff ===
+git diff COMMIT_ID-1 COMMIT_ID-2
 ```
 
-## Share your code on GitHub
+
+
+---
+
+# GitHub - Remote Repository
+
+## Initial Setup on Terminal
 
 * Generate ssh key for your device
 
@@ -113,7 +158,7 @@ ssh-keygen -t rsa -C "seventan1234@gmail.com"
 
 # -t	secret key. Default=rsa
 # -C	description. eg: email
-# -f 	particular file. eg: /home/seventan/.ssh/id_rsa
+# -f 	particular file. default: /home/USERNAME/.ssh/id_rsa
 
 # Then select the file to be share
 # Enter passphrase
@@ -141,10 +186,9 @@ Then shell would prompt out:
 Hi seventan1234! You've successfully authenticated, but GitHub does not provide shell access.
  `
 
-* If ssh connection successful
+## `git remote`
 
 ```bash
-
 git init
 git remote add origin git@github.com:seventan1234/new.git
 
@@ -158,21 +202,21 @@ git remote remove orgin
 git remote show origin
 ```
 
+---
+
+## Basic Git Operation - `pull` & `push`
+
 * To copy repo from GitHub
 
 ```bash
 git clone git@github.com:seventan1234/new.git
 ```
 
-
-
-* If the file edited on GitHub, use pull to compare with local one
+* Track **local** repo **from remote** repo
 
 ```bash
 git pull git@github.com:seventan1234/new.git
 ```
-
-
 
 * Push your file to repo
 
@@ -180,5 +224,5 @@ git pull git@github.com:seventan1234/new.git
 git push -u origin master
 ```
 
-
+---
 
